@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userApp">
+<head>
+    <title>User page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="userstyle/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="userstyle/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="userstyle/css/uniform.css" />
+    <link rel="stylesheet" href="userstyle/css/ngtoast.css" />
+    <link rel="stylesheet" href="userstyle/css/select2.css" />
+    <link rel="stylesheet" href="newbuild/css/custom.min.css">
+    <link rel="stylesheet" href="userstyle/css/searchbox.css" />
+
+    <link href="newside/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+    <style type="text/css">
+button{
+float:left;
+margin-bottom:20px;
+}
+ .node circle {
+   fill: #fff;
+   stroke: steelblue;
+   stroke-width: 3px;
+ }
+
+ .node text { font: 12px sans-serif; }
+
+ .link {
+   fill: none;
+   stroke: #ccc;
+   stroke-width: 2px;
+ }
+        .arrow-up
+
+        {
+            width:0px;
+            height:0px;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+            border-bottom:10px solid black;
+        }
+        .arrow-down
+        {
+            width:0px;
+            height:0px;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+            border-top:10px solid black;
+        }
+
+
+        .search input[type=text] {
+            max-width: 250px;
+            height:35px;
+            box-sizing: border-box;
+            border: 2px solid #799fa9;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image:url('css/searchbutton.gif');
+            background-position: 5px 7px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+               -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            float:right;
+        }
+        input[type=text] {
+            box-sizing: border-box;
+            border-radius: 0px;
+            font-size: 16px;
+            height: -1px;
+            background-color: white;
+           padding: 12px 20px 12px 40px;
+               -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            float:right;
+        }
+
+
+        .jumbotron
+{
+background-color:transparent !important;
+border:1px solid #ddd;
+box-shadow:1px 1px 10px;
+}
+
+
+    .w3-card-4
+    {
+width:30%;
+display:inline-block;
+margin:10px;
+    }
+
+
+    .nav-tabs {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius:20px;
+   margin-bottom: -1px;
+    margin-left: -24px;
+}
+
+ .nav-tabs>li>a:hover,.nav-tabs>li.active>a:hover{
+    color: #555;
+    background-color: #fff;
+    border: 1px solid black;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.nav-tabs>li.active>a
+{
+  background-color: #eee;
+}
+
+#user-nav {
+    z-index: -9;
+}
+
+
+.node circle {
+   fill: #fff;
+   stroke: steelblue;
+   stroke-width: 3px;
+ }
+
+ .node text { font: 12px sans-serif; }
+
+ .link {
+   fill: none;
+   stroke: #ccc;
+   stroke-width: 2px;
+ }
+
+ .arrow-up
+ {
+ width:0;
+ height:0;
+ border-left:5px solid transparent;
+ border-right:5px solid transparent;
+ border-bottom:10px solid black;
+ display:inline-block;
+ }
+  .arrow-down
+ {
+ width:0;
+ height:0;
+ border-left:5px solid transparent;
+ border-right:5px solid transparent;
+ border-top:10px solid black;
+ display:inline-block;
+ }
+ .mystyle
+ {
+ max-width:40%;
+ margin:0 auto;
+ }
+
+
+
+.modal {
+  width: 500px;
+  height:100px;
+  margin: auto;
+  overflow:unset;
+}
+
+
+
+.paging{
+
+margin-left:425px;
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+div.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+
+h1, h2, h3 {
+    line-height: 20px;
+}
+
+
+    </style>
+
+
+
+
+
+</head>
+
+
+<style>
+.pointerClass {cursor:pointer !important;}
+</style>
+
+<body class="nav-md" ng-controller="loginController">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title display" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span style="font-size:14px;">UserResource Management </span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="images/Dshan.jpg" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Welcome</span>
+                        <h2>USER</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <!--<h3>USER</h3>-->
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-home"></i> HOME <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a ui-sref="dashboard">Dashboard</a></li>
+                                    <li><a ui-sref="basicinformation.companystructure"> Basic Information</a> </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> SETTINGS <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a id="warning" ui-sref="admindetails"> My details</a></li>
+                                    <li><a ui-sref="projectinformation.userprojects">Projects</a></li>
+                                    <li><a ui-sref="usertimesheets.userallmytimesheets">Time Sheets</a> </li>
+                                    <li><a ui-sref="hrform.userhrformreleave">Hr Form Request</a></li>
+
+
+                                </ul>
+                            </li>
+
+                            <li><a><i class="fa fa-edit"></i>Company Setting<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a ui-sref="jobdetailssetup.jobdetails">Job details settings</a></li>
+                                    <li><a ui-sref="qualification.skills">Qualification settings</a></li>
+                                    <li><a ui-sref="trainingsetup.courses">Training settings</a></li>                                                                                                      <!--<li><a ui-sref="projectclient.client">project details </a></li>-->
+                                    <li><a ui-sref="projectclient.client">Client settings </a></li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu display">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/Dshan.jpg" alt="">User
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="javascript:;"> Profile</a></li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                                <li><a href="javascript:;">Help</a></li>
+                                <li><a ui-sref="login"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="badge bg-green">6</span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <!--<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>-->
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+
+
+</body>
+
+<!--Header-part-->
+
+
+
+<script type="text/javascript" src="userscript/routing.js"></script>
+<script type="text/javascript" src="userscript/dirPagination.js"></script>
+<script type="text/javascript" src="userscript/toastmin.js"></script>
+
+<script src="userscript/clientController/userprojectscontroller.js"></script>
+<script src="userscript/clientController/userallmytimesheetscontroller.js"></script>
+<script src="userscript/clientController/logincontroller.js"></script>
+<script src="userscript/clientController/userapprovedtimesheetscontroller.js"></script>
+<script src="userscript/clientController/employeedetailscontroller.js"></script>
+<script src="userscript/clientController/companystructurecontroller.js"></script>
+<script src="userscript/clientController/companygraph.js"></script>
+<script src="userscript/clientController/certificationcontroller.js"></script>
+<script src="userscript/clientController/employeementcontroller.js"></script>
+<script src="userscript/clientController/jobdetailscontroller.js"></script>
+<script src="userscript/clientController/languagecontroller.js"></script>
+<script src="userscript/clientController/paygradecontroler.js"></script>
+<script src="userscript/clientController/projectclient.js"></script>
+<script src="userscript/clientController/projectcontroller.js"></script>
+<script src="userscript/clientController/quali-educationcontroller.js"></script>
+<script src="userscript/clientController/qualificationcontroller.js"></script>
+<script src="userscript/clientController/trainingsessioncontroller.js"></script>
+<script src="userscript/clientController/trainingsetupcontroller.js"></script>
+<script src="userscript/datetimescript.js"></script>
+<script src="userscript/clientController/releavecontroller.js"></script>
+
+
+
+
+
+
+
+<!--usercontroller-->
+
+<script src="userscript/clientDirectives/addFrom.js"></script>
+<script src="userscript/clientDirectives/editFrom.js"></script>
+<script src="userscript/clientDirectives/toasterdirective.js"></script>
+<script src="userscript/clientService/fromService.js"></script>
+<script src="userscript/clientService/userprojectsService.js"></script>
+<script src="userscript/clientService/userallmytimesheetsService.js"></script>
+<script src="userscript/clientService/userapprovedtimesheetsService.js"></script>
+<script src="userscript/clientService/userpendingtimesheetsService.js"></script>
+<script src="userscript/clientService/employeedetailsservice.js"></script>
+<script src="userscript/clientService/webcamservice.js"></script>
+<script src="userscript/clientService/employeeidservices.js"></script>
+<script src="userscript/clientService/setPasswordService.js"></script>
+<script src="userscript/clientService/clientService.js"></script>
+<script src="userscript/clientService/certificationservice.js"></script>
+<script src="userscript/clientService/employeementservice.js"></script>
+<script src="userscript/clientService/jobdetailsservice.js"></script>
+<script src="userscript/clientService/languageservice.js"></script>
+<script src="userscript/clientService/paygradeservice.js"></script>
+<script src="userscript/clientService/projectclient.js"></script>
+<script src="userscript/clientService/projectservice.js"></script>
+<script src="userscript/clientService/quali-educationservice.js"></script>
+<script src="userscript/clientService/qualificationservice.js"></script>
+<script src="userscript/clientService/trainingsessionservice.js"></script>
+<script src="userscript/clientService/trainingsetupservice.js"></script>
+<script src="userscript/clientService/releaveservice.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    jQuery(function () {
+    jQuery('#error').click(function () {
+        // make it not dissappear
+        toastr.error("Noooo oo oo ooooo!!!", "Title", {
+            "timeOut": "0",
+            "extendedTImeout": "0"
+        });
+    });
+    jQuery('#info').click(function () {
+   		// title is optional
+        toastr.info(" UPDATED SUCCESSFULLY",);
+    });
+    jQuery('#warning').click(function () {
+        toastr.warning("FILL THE DETAILS");
+    });
+    jQuery('#success').click(function () {
+        toastr.success("TRAVEL DETAILS");
+    });
+
+    jQuery('#danger').click(function () {
+        toastr.danger("DELETED SUCCESSFULLY");
+    });
+});
+
+
+</script>
+
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="newbuild/js/custom.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="userscript/clientController/dashboardcontroller.js"></script>
+
+
+<script src="userscript/webcam/angularwebcam/ng-webcam.js"></script>
+<script src="userscript/webcam/angularwebcam/webcam.min.js"></script>
+<script src="userscript/webcam/angularwebcam/controller.js"></script>
+
+
+<script src="userscript/tableExport/tableExport.js"></script>
+<script src="userscript/tableExport/sprintf.js"></script>
+<script src="userscript/tableExport/jspdf.js"></script>
+<script src="userscript/tableExport/jquery.base64.js"></script>
+<script src="userscript/tableExport/base64.js"></script>
+
+
+
+<script src="userscript/datetime-picker.js"></script>
+<script src="userscript/datetimescript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.0/ui-bootstrap-tpls.js"></script>
+
+</html>

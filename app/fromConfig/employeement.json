@@ -1,0 +1,17 @@
+{
+
+  "EmployeementStatus": {
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+
+  "Description": {
+    "type": "String",
+    "description": "Enter Description",
+    "modelValue": "",
+    "readonly":false
+  }
+
+}

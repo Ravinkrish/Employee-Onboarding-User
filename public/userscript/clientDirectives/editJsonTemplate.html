@@ -1,0 +1,44 @@
+
+
+<!--<div class="row">-->
+        <!--<h2>fjdvguyfvgcvcevcidviceorifeufoieufoiefuoifure</h2>-->
+
+        <!--<div ng-repeat="formEle in jsonConfig">-->
+            <!--<div class="form-group" ng-if="formEle.type==='String'">-->
+                <!--<label class="control-label col-sm-2" for="name">{{formEle.name}}</label>-->
+                <!--<div class="col-sm-6">-->
+                    <!--<input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue" />-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group" ng-if="formEle.type==='Number'">-->
+                <!--<label class="control-label col-sm-2" for="time">{{formEle.name}}</label>-->
+                <!--<div class="col-sm-6">-->
+                    <!--<input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue" type="text"-->
+                           <!--onkeypress='return (event.charCode >= 48 && event.charCode <= 57)|| event.charCode <= 8 '  >-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+<form class="form-horizontal">
+    <div class="row">
+        <div ng-repeat="formEle in jsonConfig">
+            <div class="form-group" ng-if="formEle.type==='String'">
+                <label class="control-label col-sm-2" for="name">{{formEle.name}}</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="formEle.type==='Number'">
+                <label class="control-label col-sm-2" for="time">{{formEle.name}}</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue" type="text"
+                           onkeypress='return (event.charCode >= 48 && event.charCode <= 57)|| event.charCode <= 8 '  >
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

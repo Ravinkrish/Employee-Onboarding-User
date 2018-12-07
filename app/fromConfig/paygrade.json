@@ -1,0 +1,25 @@
+{
+
+  "Designation": {
+    "type":"String",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Currency": {
+    "type":"String",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Min Salary": {
+    "type":"Number",
+    "description": "Enter Min Salary ",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Max Salary": {
+    "type":"Number",
+    "description": "Enter Max Salary",
+    "modelValue": "",
+    "readonly":false
+  }
+}

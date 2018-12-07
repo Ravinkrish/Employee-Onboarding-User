@@ -1,0 +1,22 @@
+{
+
+  "Designation": {
+    "type": "String",
+    "description": "Enter Qualification ",
+    "modelValue": "",
+    "readonly": false
+  },
+
+  "Skill": {
+    "type": "String",
+    "description": "Enter Skill",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Description": {
+    "type": "String",
+    "description": "Enter Description",
+    "modelValue": "",
+    "readonly":true
+  }
+}

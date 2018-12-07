@@ -1,0 +1,20 @@
+{
+  "Designation": {
+    "type": "String",
+    "description": "Enter Qualification ",
+    "modelValue": "",
+    "readonly": false
+  },
+  "Certification": {
+    "type": "String",
+    "description": "Enter Certification",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Description": {
+    "type": "String",
+    "description": "Enter Description",
+    "modelValue": "",
+    "readonly":true
+  }
+  }

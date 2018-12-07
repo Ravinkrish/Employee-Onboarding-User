@@ -1,0 +1,323 @@
+
+
+
+<br/><br/>
+{{currentemployeeid}}
+<div class="loginheader">
+    <nav class="navbar navbar-inverse ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="photos/dsha.png" alt="logo" height="50px" width="200px">
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span>Set Password</a></li>
+                <li><a style="color:white;" href="#"><span class="glyphicon glyphicon-user"></span>register</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="margin-top:-220px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                    Employee ID<br>
+                    <input name="firstname" ng-model="logins.Employeenumber">
+                    <br>
+                    Password<br>
+                    <input name="lastname" ng-model="logins.Password">
+                    <br>
+                    Re enter Password<br>
+                    <input name="firstname" ng-model="logins.RePassword">
+                    <br>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" data-ng-click="setpassword(logins);">Set Password</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<br/><br/>
+<div class="container" ng-controller="loginController" style="margin-left: -90px;">
+
+
+    <div class="omb_login">
+        <h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
+        <div class="row omb_row-sm-offset-3 omb_socialButtons">
+            <div class="col-xs-4 col-sm-2">
+                <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                    <i class="fa fa-facebook visible-xs"></i>
+                    <span class="hidden-xs">Facebook</span>
+                </a>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                    <i class="fa fa-twitter visible-xs"></i>
+                    <span class="hidden-xs">Twitter</span>
+                </a>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <a href="#" class="btn btn-lg btn-block omb_btn-google">
+                    <i class="fa fa-google-plus visible-xs"></i>
+                    <span class="hidden-xs">Google+</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row omb_row-sm-offset-3 omb_loginOr">
+            <div class="col-xs-12 col-sm-6">
+                <hr class="omb_hrOr">
+                <span class="omb_spanOr">or</span>
+            </div>
+        </div>
+
+        <div class="row omb_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-6">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="email address" ng-model="logindata.Employeenumber">
+                    </div>
+                    <span class="help-block"></span>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input  type="password" class="form-control" placeholder="Password" ng-model="logindata.Password">
+                    </div>
+                    <span class="help-block"></span>
+
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="login(logindata)">Login</button>
+
+            </div>
+        </div>
+        <div class="row omb_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-3">
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me">Remember Me
+                </label>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <p class="omb_forgotPwd">
+                    <a href="#">Forgot password?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="foot">
+    <p>Footer</p>
+</div>
+
+
+
+<style>
+.container11 {
+    display: none;
+    }
+#content{
+
+border:0px;
+}
+
+ .the-legend {
+    display: none;
+    }
+
+h1{
+display: none;
+
+}
+
+#sidebar-menu{
+display: none;
+
+}
+.display{
+display: none;
+
+}
+.profile{
+display: none;
+}
+.sidebar-footer{
+display: none;
+
+}
+.top_nav{
+display: none;
+
+}
+
+#menu_toggle{
+display: none;
+
+}
+
+.loginheader{
+margin-bottom: 88px;
+    margin-top: -60px;
+    width: 107%;
+    position: left;
+    margin-right: 273px;
+    margin-left: -28px;
+}
+
+.navbar-inverse{
+    background-color: #222;
+    border-color: #080808;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    margin-left: -222px;
+}
+
+.left_col
+{ background-color:#F7F7F7; }
+.nav.navbar-nav>li>a
+{
+color:white!important;
+}
+
+
+.foot{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   z-index:1;
+   height:5%;
+}
+
+@media (min-width: 768px) {
+    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+        margin-left: 25%;
+    }
+}
+
+.omb_login .omb_authTitle {
+    text-align: center;
+	line-height: 300%;
+}
+
+.omb_login .omb_socialButtons a {
+	color: white; // In yourUse @body-bg
+	opacity:0.9;
+}
+.omb_login .omb_socialButtons a:hover {
+    color: white;
+	opacity:1;
+}
+.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+
+
+.omb_login .omb_loginOr {
+	position: relative;
+	font-size: 1.5em;
+	color: #aaa;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+.omb_login .omb_loginOr .omb_hrOr {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+.omb_login .omb_loginOr .omb_spanOr {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -0.6em;
+	margin-left: -1.5em;
+	background-color: white;
+	width: 3em;
+	text-align: center;
+}
+
+.omb_login .omb_loginForm .input-group.i {
+	width: 2em;
+}
+.omb_login .omb_loginForm  .help-block {
+    color: red;
+}
+
+.modal {
+    position:fixed;
+    top:0%;
+    left:50%;
+    z-index: 1050;
+    width:560px;
+    margin-left:-280px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,0.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    outline:0;
+    -webkit-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .omb_login .omb_forgotPwd {
+        text-align: right;
+		margin-top:10px;
+ 	}
+}
+
+
+
+</style>

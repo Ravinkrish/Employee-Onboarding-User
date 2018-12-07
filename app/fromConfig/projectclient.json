@@ -1,0 +1,53 @@
+{
+
+
+  "Name": {
+    "type": "String",
+    "description": "Enter The Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Details": {
+    "type": "String",
+    "description": "Enter The Details",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Address": {
+    "type": "String",
+    "description": "Enter The Address",
+    "modelValue": "",
+    "readonly":false
+  },
+    "Contact Number": {
+      "type": "String",
+      "description": "Enter the Contact Number",
+      "modelValue": "",
+      "readonly":false
+    },
+  "Contact Email": {
+    "type": "String",
+    "description": "Enter the Contact Email",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Company Url": {
+    "type": "String",
+    "description": "Enter the Company Url",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Status": {
+    "type": "String",
+    "description": "Enter the Status",
+    "modelValue": "",
+    "readonly":false
+  },
+  "First Contact Date": {
+    "type": "String",
+    "description": "Enter the First Contact Date",
+    "modelValue": "",
+    "readonly":false
+  }
+
+  }

@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+
+<form class="form-horizontal" role="form">
+    <div class="row">
+        <!--{{jsonConfig}}-->
+
+        <div ng-repeat="formEle in jsonConfig">
+            <!--<p>{{formEle.name}}</p>-->
+            <div class="form-group" ng-if="formEle.type==='String'&&formEle.name!=='Leavestartdate'&&formEle.name!=='Leaveenddate'&&formEle.name!=='Leavetype'&&formEle.realName!=='LoanType'&&formEle.realName!=='LoanRequiredDate'&&formEle.realName!=='isapproved'&&formEle.realName!=='AmmountProvided'&&formEle.realName!=='StartDate'&&formEle.realName!=='EndDate'&&formEle.realName!=='Repaypermonth'&&formEle.realName!=='Acno'&&formEle.realName!=='Ifsccode'&&formEle.realName!=='Branch'&&formEle.realName!=='Start date'&&formEle.realName!=='Time-In'&&formEle.realName!=='Time-Out'&&formEle.realName!=='Employeenumber'&&formEle.realName!=='Password'">
+        <label class="control-label col-sm-2">{{formEle.name}}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue"/>
+        </div>
+    </div>
+
+            <div class="form-group" ng-if="formEle.name=='Leavetype'" ng-controller="userallmyleaveCtrl">
+                <label class="control-label col-sm-2">{{formEle.name}}</label>
+
+                <div class="col-sm-6">
+
+                        <select chosen
+                                option="leave"
+                                ng-model="formEle.modelValue"
+                                ng-options="leave for leave in leave">
+                        </select>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group" ng-if="formEle.name=='Leavestartdate'||formEle.name=='Leaveenddate'||formEle.realName=='LoanRequiredDate'||formEle.realName=='Start date'||formEle.realName=='Time-Out'" ng-controller="dateandtimepicCtrl as ctrl">
+                <label class="col-sm-2 control-label">{{formEle.name}}</label>
+                <div class="col-sm-6">
+                    <p class="input-group">
+                        <input type="text" class="form-control"  datetime-picker  ng-model="formEle.modelValue"  ng-change="dateAndTime(ctrl.picker6.date);changingDateValue(ctrl.picker6.date)" is-open="ctrl.picker6.open" ng-init="ctrl.picker6.date" />
+                        <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="ctrl.openCalendar($event, 'picker6')"><i class="fa fa-calendar"></i></button>
+              </span>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-if="formEle.realName=='Time-In'" ng-controller="dateandtimepicCtrl as ctrl">
+                <label class="col-sm-2 control-label">{{formEle.name}}</label>
+                <div class="col-sm-6" ng-controller="userattendanceCtrl">
+                    <p class="input-group">
+                        <input type="text" class="form-control"  datetime-picker  ng-model="formEle.modelValue"  ng-change="dateAndTime(ctrl.picker6.date);changingDateValue(ctrl.picker6.date);getTimeInDate(formEle.modelValue)" is-open="ctrl.picker6.open" ng-init="ctrl.picker6.date" />
+                        <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="ctrl.openCalendar($event, 'picker6')"><i class="fa fa-calendar"></i></button>
+              </span>
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="form-group" ng-if="formEle.realName=='LoanType'" ng-controller="comapnyloanCtrl">
+                <label class="control-label col-sm-2">{{formEle.name}}</label>
+
+                <div class="col-sm-6">
+                    <select chosen
+                            option="formEle.modelValue"
+                            ng-model="companyloan"
+                            ng-change="settingloantype(companyloan)"
+                            ng-options="loantype for loantype in formEle.modelValue">
+                    </select>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="form-group" ng-if="formEle.type==='Number'">
+        <label class="control-label col-sm-2">{{formEle.name}}</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control"  placeholder={{formEle.description}}  ng-model="formEle.modelValue" type="text"
+                   onkeypress='return (event.charCode >= 48 && event.charCode <= 57)|| event.charCode <= 8 '  >
+        </div>
+    </div>
+            <div class="form-group" ng-if="formEle.name=='images'">
+                <label class="control-label col-sm-2">{{formEle.name}}</label>
+                <div class="col-sm-6">
+                    <button> <a ui-sref="wecam">upload</a></button>
+            </div>
+
+</div>
+
+
+
+

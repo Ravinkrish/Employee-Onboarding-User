@@ -1,0 +1,26 @@
+{
+  "Start date": {
+    "type": "String",
+    "description": "Enter Start date",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Date of End": {
+    "type": "String",
+    "description": "Enter Date of End",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Total Time": {
+    "type": "String",
+    "description": "Enter Total Time",
+    "modelValue": "",
+    "readonly":true
+  },
+  "State": {
+    "type": "String",
+    "description": "Enter State",
+    "modelValue": "",
+    "readonly":false
+  }
+}

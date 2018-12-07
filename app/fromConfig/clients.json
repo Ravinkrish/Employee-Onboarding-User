@@ -1,0 +1,53 @@
+{
+
+
+  "Name": {
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Details": {
+    "type": "String",
+    "description": "Enter Details",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Address": {
+    "type": "String",
+    "description": "Enter Address",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Type": {
+    "type": "String",
+    "description": "Enter Type",
+    "modelValue": "",
+    "readonly":false
+  },
+    "Country": {
+      "type": "String",
+      "description": "Enter Country",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Time Zone": {
+      "type": "String",
+      "description": "Enter the TimeZone",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Parent Structure": {
+      "type": "String",
+      "description":"Enter the parents structure ",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Heads": {
+      "type": "Object",
+      "description": "Enter Heads ",
+      "modelValue": "",
+      "readonly":false
+    }
+
+  }

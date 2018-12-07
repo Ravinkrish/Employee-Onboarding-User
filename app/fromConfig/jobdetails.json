@@ -1,0 +1,20 @@
+{
+  "Code": {
+    "type": "String",
+    "description": "Enter job Code ",
+    "modelValue": "",
+    "readonly": false
+  },
+  "Name": {
+    "type": "String",
+    "description": "Enter Job Name",
+    "modelValue": "",
+    "readonly": true
+  },
+  "Description": {
+    "type": "String",
+    "description": "Enter Description",
+    "modelValue": "",
+    "readonly": false
+  }
+  }

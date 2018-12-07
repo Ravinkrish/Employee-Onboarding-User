@@ -1,0 +1,58 @@
+{
+  "Clientproject": {
+    "type": "String",
+    "description": "Enter the Client",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Nameoftheproject":{
+    "type": "String",
+    "description": "Enter the Client",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Details":{
+    "type": "String",
+    "description": "Enter the Details",
+    "modelValue": "",
+    "readonly":true
+  },
+
+  "NoofEmployees": {
+    "type": "Number",
+    "description": "Enter NoofEmployees",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Employeeid":{
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Projectstartdate":{
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Status":{
+    "type": "String",
+    "description": "Enter the Status",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Meetingfollowup":{
+    "type":"Date",
+    "description": "Enter the Meeting follow up",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Latestmeetup":{
+    "type":"String",
+    "description": "Enter the Latest meet up",
+    "modelValue": "",
+    "readonly":true
+  }
+
+}

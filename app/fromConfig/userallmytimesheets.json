@@ -1,0 +1,31 @@
+{
+  "Employee": {
+    "type": "String",
+    "description": "Enter Start Employee",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Employeeid": {
+    "type": "String",
+    "description": "Enter Employeeid",
+    "modelValue": "",
+    "readonly":false
+  },
+  "date": {
+    "type": "String",
+    "description": "Enter Taskdate",
+    "modelValue": "",
+    "readonly":true
+  },
+  "userdailytask:": {
+    "type": "String",
+    "description": "Enter Task",
+    "modelValue": "",
+    "readonly":false
+  },
+  "isapproved":{
+    "type":"Boolean",
+    "modelValue": "",
+    "readonly":false
+  }
+}

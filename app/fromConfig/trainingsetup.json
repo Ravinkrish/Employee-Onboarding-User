@@ -1,0 +1,56 @@
+{
+  "Code": {
+    "type": "String",
+    "description": "Enter The Code ",
+    "modelValue": "",
+    "readonly": false
+  },
+  "Course":{
+    "type": "String",
+    "description": "Enter The Course Name",
+    "modelValue": "",
+    "readonly": true
+  },
+  "Coordinator":{
+    "type": "String",
+    "description": "Enter the Coordinator",
+    "modelValue": "",
+    "readonly": true
+  },
+  "Trainer":{
+    "type": "String",
+    "description": "Enter the Trainer",
+    "modelValue": "",
+    "readonly": true
+  },
+  "TrainerDetails":{
+    "type": "String",
+    "description": "Enter the Trainer Details",
+    "modelValue": "",
+    "readonly": true
+  },
+  "PaymentType":{
+    "type": "String",
+    "description": "Enter the PaymentType",
+    "modelValue": "",
+    "readonly": true
+  },
+  "Currency":{
+    "type": "String",
+    "description": "Enter the Currency",
+    "modelValue": "",
+    "readonly": true
+  },
+  "Cost":{
+    "type": "String",
+    "description": "Enter the Cost",
+    "modelValue": "",
+    "readonly": true
+  },
+  "status":{
+    "type": "String",
+    "description": "Enter the status",
+    "modelValue": "",
+    "readonly": true
+  }
+}

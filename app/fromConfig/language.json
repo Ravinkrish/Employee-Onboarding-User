@@ -1,0 +1,20 @@
+{
+  "Designation": {
+    "type": "String",
+    "description": "Enter Qualification ",
+    "modelValue": "",
+    "readonly": false
+  },
+  "Regional Language": {
+    "type": "String",
+    "description": "Enter Language",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Description": {
+    "type": "String",
+    "description": "Enter Description",
+    "modelValue": "",
+    "readonly":true
+  }
+  }

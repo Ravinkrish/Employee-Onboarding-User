@@ -1,0 +1,67 @@
+{
+
+
+  "Name": {
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Training": {
+    "type": "String",
+    "description": "Enter Training Course",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Details": {
+    "type": "String",
+    "description": "Enter Details",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Scheduled Time": {
+    "type": "String",
+    "description": "Enter Scheduled Time",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Assignment Due Date": {
+    "type": "String",
+    "description": "Enter Assignment Due Date",
+    "modelValue": "",
+    "readonly":false
+  },
+
+    "Delivery Method": {
+      "type": "String",
+      "description": "Enter the Delivery Method",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Delivery Location": {
+      "type": "String",
+      "description":"Enter the Delivery Location ",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Attendance Type": {
+      "type": "String",
+      "description": "Enter Attendance Type ",
+      "modelValue": "",
+      "readonly":false
+    },
+  "Attachment": {
+    "type": "String",
+    "description": "Enter Attachment ",
+    "modelValue": "",
+    "readonly":false
+  },
+
+  "Training Certificate Required": {
+    "type": "String",
+    "description": "Enter Training Certificate Required ",
+    "modelValue": "",
+    "readonly":false
+  }
+
+  }

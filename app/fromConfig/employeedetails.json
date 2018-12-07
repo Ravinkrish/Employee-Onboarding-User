@@ -1,0 +1,317 @@
+{
+  "Name":{
+    "type": "String",
+    "description": "Enter Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Employeenumber":{
+    "type": "String",
+    "description": "Enter Number",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Password":{
+    "type": "String",
+    "description": "Enter Supervisor",
+    "modelValue": "",
+    "readonly":true
+  },
+  "FirstName":{
+    "type": "String",
+    "description": "Enter First Name",
+    "modelValue": "",
+    "readonly":false
+  },
+  "LastName":{
+    "type": "String",
+    "description": "Enter Last Name",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Mobilephone":{
+    "type": "String",
+    "description": "Enter the Mobile no",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Emailid":{
+    "type": "String",
+    "description": "Enter The Emailid",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Department":{
+    "type": "String",
+    "description": "Enter Department",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Designation":{
+    "type": "Object",
+    "description": "Enter Designation",
+    "modelValue": "",
+    "readonly":true
+  },
+
+
+  "Gender":{
+    "type": "String",
+    "description": "Enter The Gender",
+    "modelValue": "",
+    "readonly":true
+  },
+  "Supervisor":{
+    "type": "String",
+    "description": "Enter Supervisor",
+    "modelValue": "",
+    "readonly":true
+  },
+  "images":{
+    "type":"String",
+    "modelValue": ""
+  },
+
+  "Skillsdata":[
+    {
+      "Skill": {
+        "type": "String",
+        "description": "Enter skill",
+        "modelValue": "",
+        "readonly": false
+      },
+      "SkillDetails": {
+        "type": "String",
+        "description": "Enter SkillDetails",
+        "modelValue": "",
+        "readonly": false
+      }
+    }],
+  "Qalificationdata":[{
+    "Qualification": {
+      "type": "String",
+      "description": "Enter Qualification",
+      "modelValue": "",
+      "readonly": false
+    },
+    "InstituteName": {
+      "type": "String",
+      "description": "Enter Institute",
+      "modelValue": "",
+      "readonly": true
+    },
+    "StartDate": {
+      "type": "String",
+      "description": "Enter Start Date",
+      "modelValue": "",
+      "readonly": true
+    },
+    "CompletedOn": {
+      "type": "String",
+      "description": "Enter Completed On",
+      "modelValue": "",
+      "readonly": true
+    }
+  }],
+  "Certificationdata":[{
+    "Certification": {
+      "type": "String",
+      "description": "Enter Certification",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Institute": {
+      "type": "String",
+      "description": "Enter Institute",
+      "modelValue": "",
+      "readonly":true
+    },
+    "GrantedOn": {
+      "type": "String",
+      "description": "Enter Granted On",
+      "modelValue": "",
+      "readonly":true
+    },
+    "ValidThru": {
+      "type": "String",
+      "description": "Enter Valid Thru",
+      "modelValue": "",
+      "readonly":true
+    }
+  }],
+  "Languagedata":[{
+    "Language": {
+      "type": "String",
+      "description": "Enter Language",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Reading": {
+      "type": "String",
+      "description": "Enter Reading",
+      "modelValue": "",
+      "readonly":true
+    },
+    "Speaking": {
+      "type": "String",
+      "description": "Enter Speaking",
+      "modelValue": "",
+      "readonly":true
+    },
+    "Writing": {
+      "type": "String",
+      "description": "Enter Writing",
+      "modelValue": "",
+      "readonly":true
+    },
+    "Understanding": {
+      "type": "String",
+      "description": "Enter Understanding",
+      "modelValue": "",
+      "readonly":true
+    }
+  }],
+
+  "Dependentdata":[{
+
+    "DependentName": {
+      "type": "String",
+      "description": "Enter DependentName",
+      "modelValue": "",
+      "readonly":true
+    },
+    "DateOfBirth": {
+      "type": "String",
+      "description": "Enter Date of Birth",
+      "modelValue": "",
+      "readonly":true
+    },
+    "IdProofNumber": {
+      "type": "String",
+      "description": "Enter Id Proof Number",
+      "modelValue": "",
+      "readonly":true
+    }
+  }],
+
+  "Emergencycontactdata":[{
+    "EmployeeRelationship": {
+      "type": "String",
+      "description": "Enter Employee Relationship",
+      "modelValue": "",
+      "readonly":true
+    },
+    "HomePhone": {
+      "type": "String",
+      "description": "Enter Home Phone",
+      "modelValue": "",
+      "readonly":true
+    },
+    "WorkPhone": {
+      "type": "String",
+      "description": "Enter Work Phone",
+      "modelValue": "",
+      "readonly":true
+    },
+    "EmergencyMobilePhone": {
+      "type": "String",
+      "description": "Enter Mobile Phone",
+      "modelValue": "",
+      "readonly":true
+    }
+  }],
+  "Documentdata":[{
+    "Document": {
+      "type": "String",
+      "description": "Enter Document",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Details": {
+      "type": "String",
+      "description": "Enter Details",
+      "modelValue": "",
+      "readonly":false
+    },
+    "Status": {
+      "type": "String",
+      "description": "Enter Status",
+      "modelValue": "",
+      "readonly":false
+    }
+  }],
+
+  "BankAccountHolderName":{
+    "type": "String",
+    "description": "Enter BankAccountHolderName",
+    "modelValue": "",
+    "readonly":false
+  },
+  "AccountNo":{
+    "type": "Number",
+    "description": "Enter AccountNo",
+    "modelValue": "",
+    "readonly":false
+  },
+  "IFSCCode":{
+    "type": "Number",
+    "description": "Enter IFSCCode",
+    "modelValue": "",
+    "readonly":false
+  },
+  "NameOfTheBank":{
+    "type": "String",
+    "description": "Enter NameOfTheBank",
+    "modelValue": "",
+    "readonly":false
+  },
+  "AddressOfTheBank":{
+    "type": "String",
+    "description": "Enter AddressOfTheBank",
+    "modelValue": "",
+    "readonly":false
+  },
+  "Emailsent":{
+    "type":"Boolean",
+    "description": "Enter Emailsent",
+    "modelValue":false,
+    "readonly":false
+  },
+  "isapproved":{
+    "type":"Boolean",
+    "description": "Enter Emailsent",
+    "modelValue":false,
+    "readonly":false
+  },
+  "currentemployee":{
+    "type":"Boolean",
+    "description": "Enter Emailsent",
+    "modelValue":false,
+    "readonly":false
+  },
+  "servingnoticeperiod":{
+    "type":"Boolean",
+    "description": "Enter Emailsent",
+    "modelValue":false,
+    "readonly":false
+  },
+  "releavedemployee":{
+    "type":"Boolean",
+    "description": "Enter Emailsent",
+    "modelValue":false,
+    "readonly":false
+  },
+  "releaveEndDate":{
+    "type":"Date",
+    "description": "Enter releaveEndDate",
+    "modelValue":false,
+    "readonly":false
+  },
+
+  "releaveStartDate":{
+    "type":"Date",
+    "description": "Enter releaveEndDate",
+    "modelValue":false,
+    "readonly":false
+  }
+}

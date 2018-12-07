@@ -1,0 +1,243 @@
+<style type="text/css">
+
+			#result{
+				height: 200px;
+				border: 1px solid #ccc;
+				padding: 10px;
+				box-shadow: 0 0 10px 0 #bbb;
+				margin-bottom: 30px;
+				font-size: 14px;
+				line-height: 25px;
+			}
+
+		</style>
+
+<div class="container" ng-show="tablevisible">
+     <div class="jumbotron">
+         <!--<div toaster-dir="toaster-dir" options="dirOptions">clcik</div>-->
+         <toaster-dir options="dirOptions"></toaster-dir>
+
+         <div class="col-md-3 col-sm-3 col-xs-8 form-group pull-right top_search">
+             <div class="input-group">
+                 <input type="text" class="form-control" placeholder="Search for..." ng-model="searchtext">
+                 <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+             </div>
+         </div>
+    <button ng-click="showhide()"class="w3-button w3-green w3-border">Add New&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></button>
+         <div class="mystyle">
+         <button data-ng-click="exportAction('csv')"class="w3-button  w3-indigo">CSV</button>
+         <button data-ng-click="exportAction('excel')"class="w3-button  w3-indigo">Excel</button>
+         <button data-ng-click="exportAction('doc')"class="w3-button  w3-indigo"> Doc</button>
+         <button data-ng-click="exportAction('pdf')"class="w3-button  w3-indigo">Pdf</button><br><br>
+         </div>
+
+         <div class="text-center">
+
+    <table class="table table-striped table-bordered" export-table>
+
+        <thead>
+        <tr>
+            <th ng-repeat="formhead in userallmytimesheetsJsonConfig" >{{formhead.name}}</th>
+            <th>action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="userallmytimesheets in userallmytimesheetsDetails.detailsArray|filter:searchtext">
+            <td ng-repeat="(key, value) in userallmytimesheets"  ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+            <td class="text-center">
+                <a class='btn btn-info btn-xs'
+                   ng-click="getuserallmytimesheetsDetailsById(userallmytimesheets)">
+                    <span class="glyphicon glyphicon-edit" ></span> Edit
+                </a>
+
+                <!--<a class='btn btn-info btn-xs' href="#"-->
+                   <!--ng-click="getuserallmytimesheetsDetailsById(userallmytimesheets)" data-toggle="modal" data-target="#edituserallmytimesheets">-->
+                    <!--<span class="glyphicon glyphicon-edit" ></span> Edit-->
+                <!--</a>-->
+                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="setuserallmytimesheetsDetailsIdFroDelete(userallmytimesheets._id)"  data-target="#myModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+
+        </tr>
+        </tbody>
+
+    </table>
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Deletion</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this item ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"  id="btnClose">Close</button>
+                    <button  class="btn btn-default" ng-click="deleteuserallmytimesheetsDetails(userallmytimesheetsDetails.mongodbIdForDelete)">
+                        Delete</button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+<div class="row" ng-show="formvisible">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>allmytimesheets<small>user</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br/>
+
+                <div class="container">
+
+                        <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+                            <form class="form-inline">
+                                <!--<label style="color: limegreen;">Please Enter the name</label>-->
+                                <!--<div class="input-group">-->
+                                    <!--&lt;!&ndash;<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>&ndash;&gt;-->
+                                    <!--<input type="text" class="form-control"  name=" employee" ng-model="dailytask.Employee">-->
+                                <!--</div>-->
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6" style="color:limegreen;">EmployeeName</label>
+
+                                    <div class="col-sm-6" >
+
+
+                                        <select chosen style="margin-left:-10px;"
+                                                option="employeeNameList"
+                                                ng-model="dailytask.Employee"
+                                                ng-options="Namelist for Namelist in employeeName">
+                                        </select>
+
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <br/>
+
+
+                    <div class="row">
+
+                        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+                            <form class="form-inline">
+                                <!--<label style="color: limegreen;">Please Enter the Employeeid</label>-->
+                                <!--<div class="input-group">-->
+                                    <!--&lt;!&ndash;<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>&ndash;&gt;-->
+                                    <!--<input type="text" class="form-control"  name=" employee" ng-model="dailytask.Employeeid">-->
+                                <!--</div>-->
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6" style="color:limegreen;">Employee ID</label>
+                                    <div class="col-sm-6">
+                                        <select chosen style="margin-left:-4px;"
+                                                option="employeeIdList"
+                                                ng-model="dailytask.Employeeid"
+                                                ng-options="idOfEmployee for idOfEmployee in employeeId">
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <br/>
+
+
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                            <form class="form-inline" ng-controller="datepicker.controller">
+                                <label style="color: limegreen;" class="datepickerlablesec">Please Select The Date</label>
+                                <div class="input-group" style="left: 173px; top: -26px;">
+                                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" id="date4" name="date" size="3"  data-datepicker="{theme:'flat'}" ng-model="dailytask.date">
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <br/>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6">
+
+
+
+                            <h4 align="center">Speech to text converter in JS</h4>
+                            <div id="result"></div>
+                            <button  ng-click="startConverting()"><i class="fa fa-microphone"></i>microphone</button>
+                            <button ng-click="saveUserDailyTask(dailytask)">save daily task</button>
+                        </div>
+                    </div>
+                    <br/>
+
+
+
+
+                </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<div class="row" ng-show="form2visible">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>allmytimesheets <small>user</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+        <edit-from json-config="userallmytimesheetsEditJsonConfig"></edit-from>
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+            <div class="col-sm-offset-6 col-sm-4">
+                <button type="close" class="btn " ng-click="showhide2()"><i class="fa fa-times" aria-hidden="true">close</i></button>
+                <button type="submit" class="btn btn-primary"  ng-click="updateuserallmytimesheetsDetailsToDb(userallmytimesheetsEditJsonConfig)">
+                Update</button>
+                <!--<button type="submit" class="btn btn-primary"  ng-click="updateuserallmytimesheetsDetailsToDb(userallmytimesheetsEditJsonConfig)">-->
+                    <!--Update</button>-->
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+

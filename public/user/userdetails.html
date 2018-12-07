@@ -1,0 +1,349 @@
+<script>
+(function(){
+var acc = document.getElementsByClassName("t");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+})();
+</script>
+
+
+<style>
+    body {
+  color: #2c3e50;
+  background: #ecf0f1;
+}
+h1 {
+  text-align: center;
+}
+.half {
+  float: left;
+  width: 100%;
+  padding: 0 1em;
+}
+/* Acordeon styles */
+.tab {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+}
+input {
+  position:absolute;
+
+
+}
+label {
+  position: relative;
+  display: block;
+  padding: 8px 0 0 1em;
+  background: #16a085;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+}
+.blue label {
+  background: #2980b9;
+}
+.tab-content {
+  max-height: 0;
+  overflow:hidden;
+  background: #1abc9c;
+  -webkit-transition: max-height .35s;
+  -o-transition: max-height .35s;
+  transition: max-height .35s;
+}
+
+
+/* :checked */
+input:checked ~ .tab-content {
+  max-height: 10em;
+}
+/* Icon */
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+input[type=checkbox] + label::after {
+  content: "+";
+}
+
+input[type=checkbox]:checked + label::after {
+  transform: rotate(315deg);
+}
+input[type=radio]:checked + label::after {
+  transform: rotateX(180deg);
+}
+
+
+</style>
+
+
+<div id="content-header">
+    <div ><h3>Basic Information<small>&nbsp;personal information</small></h3> </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <ul class="nav nav-tabs">
+                <li><a  ui-sref="userdetails">edit details</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class-="ththth" style="margin-left: 1000px;margin-top: -55px; position: absolute;">
+    <button type="button"  ui-sref="userdetails" class="btn btn-info btn-md">ADD</button>
+</div>
+
+<br/><br/>
+<div class="wrapper" >
+    <div class="half">
+        <div class="tab">
+            <input id="tab-one" type="checkbox" name="tabs">
+            <label class="t" for="tab-one"> add employee details</label>
+            <div class="tab-content">
+                <div class="form-group">
+                    <!--<label class="control-label col-sm-2"> Name:</label>-->
+                    <json-from json-config=employeeobject></json-from>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-4">
+                            <button type="close" class="btn " ng-click="showhide()"><i class="fa fa-times" aria-hidden="true"></i>close</button>
+                            <button type="submit" class="btn btn-primary" ng-click="saveemployee(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                            <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <br/>
+
+
+        <div class="tab">
+            <input id="tab-two" type="checkbox" name="tabs">
+            <label  class="t" for="tab-two">add photos</label>
+            <div class="tab-content webcamdesing" ng-controller="webcamController as vm">
+                <div class="jumbotron text-center">
+                    <button class="btn btn-primary" data-ng-click="cameraOnCondition()">Start Camera</button>
+                    <div ui-view="webcam"></div>
+                    <main class="app container">
+                        <div class="row">
+
+
+                            <!--{{src}}-->
+                            <div class="col-md-12" style="text-align: center">
+                                <ng-webcam config="vm.config"
+                                           on-error="vm.onError(err)"
+                                           on-load="vm.onLoad()"
+                                           on-live="vm.onLive()"
+                                           on-capture-progress="vm.onCaptureProgress(src, progress)"
+                                           on-capture-complete="vm.onCaptureComplete(src)"></ng-webcam>
+                            </div>
+                            <div class="col-md-12">
+                                <p id="progress">Progress: {{vm.progress}}%</p>
+                            </div>
+                            <div id="result" class="row"></div>
+                            <div class="col-md-12" ng-if="vm.showButtons">
+                                <button class="btn btn-primary"  ng-disabled="!vm.captureButtonEnable" ng-click="vm.capture()">Capture</button>
+                                <button class="btn btn-primary"  ng-click="vm.off()">Camera off</button>
+                                <button class="btn btn-primary"  ng-click="vm.on()">Camera on</button>
+                                <button class="btn btn-primary" data-ng-click="saveimages()">saveimages</button>
+                            </div>
+
+
+
+                        </div>
+
+                    </main>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-three" type="checkbox" name="tabs">
+            <label   class="t" for="tab-three">add skils</label>
+            <div class="tab-content">
+                <json-from json-config=skillobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn " ng-click="showhide()"><i class="fa fa-times" aria-hidden="true" ng-click="showhide()"></i>close</button>-->
+                        <button  class="btn btn-primary" ng-click="saveemployeeskillsssss(employeeJsonConfig)"><i class="fa fa-floppy-o">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+
+        <div class="tab">
+            <input id="tab-four" type="checkbox" name="tabs">
+            <label  class="t" for="tab-four">add education</label>
+            <div class="tab-content">
+                <json-from json-config=qualificationobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn" ><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeequalification(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-five" type="checkbox" name="tabs">
+            <label   class="t" for="tab-five">add Certification</label>
+            <div class="tab-content">
+                <json-from json-config=Certificationobject></json-from>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeecertification(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-six" type="checkbox" name="tabs">
+            <label  class="t" for="tab-six">add Languages</label>
+            <div class="tab-content">
+                <json-from json-config=Languageobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeelanguage(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-seven" type="checkbox" name="tabs">
+            <label  class="t" for="tab-seven">add dependents</label>
+            <div class="tab-content">
+                <json-from json-config=DependentRelationshipobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true" ></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeedependentdetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-eight" type="checkbox" name="tabs">
+            <label  class="t" for="tab-eight">add Emergency</label>
+            <div class="tab-content">
+                <json-from json-config=Emergencyobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeeemergencydetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-nine" type="checkbox" name="tabs">
+            <label  class="t" for="tab-nine">add Documents</label>
+            <div class="tab-content">
+                <json-from json-config=Documentobject></json-from>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeedocumentdetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-ten" type="checkbox" name="tabs">
+            <label  class="t" for="tab-ten">add Account Details</label>
+            <div class="tab-content">
+                <json-from json-config=BankAccountobject></json-from>
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="saveemployeebankaccountdetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>
+                        <button class="btn" data-ng-click="showhide()">back to main</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+
+    </div>
+
+    <button ng-click="">registration conform</button>
+
+</div>
+<br/><br/><br/>
+
+
+<div style="margin-left:500px;">
+    <button ng-click="myfun()" >update details</button>
+
+    <button ng-click="callEditFunction();" >Edit details</button>
+
+    <toaster-dir options="dirOptions"></toaster-dir>
+</div>
+
+
+

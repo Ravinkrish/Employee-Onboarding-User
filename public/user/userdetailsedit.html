@@ -1,0 +1,781 @@
+<script>
+(function(){
+var acc = document.getElementsByClassName("t");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+})();
+</script>
+
+
+<style>
+    body {
+  color: #2c3e50;
+  background: #ecf0f1;
+}
+h1 {
+  text-align: center;
+}
+.half {
+  float: left;
+  width: 100%;
+  padding: 0 1em;
+}
+/* Acordeon styles */
+.tab {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+}
+input {
+  position:absolute;
+
+
+}
+label {
+  position: relative;
+  display: block;
+  padding: 8px 0 0 1em;
+  background: #16a085;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+}
+.blue label {
+  background: #2980b9;
+}
+.tab-content {
+  max-height: 0;
+  overflow:hidden;
+  background: #1abc9c;
+  -webkit-transition: max-height .35s;
+  -o-transition: max-height .35s;
+  transition: max-height .35s;
+}
+
+
+/* :checked */
+input:checked ~ .tab-content {
+  max-height: 10em;
+}
+/* Icon */
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+input[type=checkbox] + label::after {
+  content: "+";
+}
+
+input[type=checkbox]:checked + label::after {
+  transform: rotate(315deg);
+}
+input[type=radio]:checked + label::after {
+  transform: rotateX(180deg);
+}
+
+.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th
+{
+    background-color: #9C27B0;
+}
+
+.modal.fade.in {
+    top: 0%;
+}
+
+.modal {
+    width: 500px;
+    height: 0px;
+    margin: auto;
+    overflow: unset;
+}
+
+.modal {
+    position: fixed;
+
+    left: 0%;
+    bottom: 50%;
+    top: 5%;
+    z-index: 1050;
+
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,0.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+</style>
+
+
+<div id="content-header">
+    <div ><h3>Basic Information<small>&nbsp;personal information</small></h3> </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <ul class="nav nav-tabs">
+                <li><a  ui-sref="userdetails">edit details</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class-="ththth" style="margin-left: 1000px;margin-top: -55px; position: absolute;">
+    <button type="button"  ui-sref="userdetails" class="btn btn-info btn-md">ADD</button>
+</div>
+
+<br/><br/>
+<div class="wrapper" >
+    <div class="half">
+        <div class="tab">
+            <input id="tab-one" type="checkbox" name="tabs">
+            <label class="t" for="tab-one"> add employee details</label>
+            <div class="tab-content">
+                <div class="form-group">
+                    <!--<label class="control-label col-sm-2"> Name:</label>-->
+                    <form class="form-horizontal form-label-left">
+                        <div class="row">
+                            <!--{{jsonConfig}}-->
+
+                            <div>
+                                <!--<p>{{formEle.name}}</p>-->
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"> Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="enter details" ng-model="basicDetails.Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Employee Number:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Employeenumber">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">First Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.FirstName">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Last Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.LastName">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Mobile phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Mobilephone">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email Id:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Emailid">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Department:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Department">
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Designation:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Designation">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Supervisor:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="name" ng-model="basicDetails.Supervisor">
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-4">
+                            <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>Delete</button>-->
+                            <button type="submit" class="btn btn-primary" ng-click="editEmployeeBasicDetails(basicDetails)"><i class="fa fa-floppy-o" aria-hidden="true">Edit</i></button>
+                            <!--<button class="btn" data-ng-click="showhide()">back to main</button>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <br/>
+
+
+        <div class="tab">
+            <input id="tab-two" type="checkbox" name="tabs">
+            <label  class="t" for="tab-two">add photos</label>
+            <div class="tab-content webcamdesing" ng-controller="webcamController as vm">
+                <div class="jumbotron text-center">
+                    <button class="btn btn-primary" data-ng-click="cameraOnCondition()">Start Camera</button>
+                    <div ui-view="webcam"><img src="{{imgagedata.images}}" alt="employee image" /></div>
+                    <main class="app container">
+                        <div class="row">
+
+
+                            <!--{{src}}-->
+                            <div class="col-md-12" style="text-align: center">
+                                <ng-webcam config="vm.config"
+                                           on-error="vm.onError(err)"
+                                           on-load="vm.onLoad()"
+                                           on-live="vm.onLive()"
+                                           on-capture-progress="vm.onCaptureProgress(src, progress)"
+                                           on-capture-complete="vm.onCaptureComplete(src)"></ng-webcam>
+                            </div>
+                            <div class="col-md-12">
+                                <p id="progress">Progress: {{vm.progress}}%</p>
+                            </div>
+                            <div id="result" class="row"></div>
+                            <div class="col-md-12" ng-if="vm.showButtons">
+                                <button class="btn btn-primary"  ng-disabled="!vm.captureButtonEnable" ng-click="vm.capture()">Capture</button>
+                                <button class="btn btn-primary"  ng-click="vm.off()">Camera off</button>
+                                <button class="btn btn-primary"  ng-click="vm.on()">Camera on</button>
+                                <button class="btn btn-primary" data-ng-click="updateimages(basicDetails.Employeenumber)">saveimages</button>
+                            </div>
+
+
+
+                        </div>
+
+                    </main>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-three" type="checkbox" name="tabs">
+            <label   class="t" for="tab-three">add skils</label>
+            <div class="tab-content">
+                <!--<json-from json-config=skillobject></json-from>-->
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+
+                        <tr>
+                            <th ng-repeat="(key,value) in employeeSkillDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                             <th>Action</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empskill in employeeSkillDetails">
+                            <td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empskill,'Skillsdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empskill._id,'Skillsdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn " ng-click="showhide()"><i class="fa fa-times" aria-hidden="true" ng-click="showhide()"></i>close</button>&ndash;&gt;-->
+                        <!--<button  class="btn btn-primary" ng-click="saveemployeeskillsssss(employeeJsonConfig)"><i class="fa fa-floppy-o">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+        </div>
+        <br/>
+
+
+        <div class="tab">
+            <input id="tab-four" type="checkbox" name="tabs">
+            <label  class="t" for="tab-four">add education</label>
+            <div class="tab-content">
+                <!--<json-from json-config=qualificationobject></json-from>-->
+
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+                            <th ng-repeat="(key,value) in employeeQualificationDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empqua in employeeQualificationDetails">
+                            <td  ng-repeat="(key, value) in empqua" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empqua,'Qalificationdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empqua._id,'Qalificationdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-five" type="checkbox" name="tabs">
+            <label   class="t" for="tab-five">add Certification</label>
+            <div class="tab-content">
+                <!--<json-from json-config=Certificationobject></json-from>-->
+
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+
+                            <th ng-repeat="(key,value) in employeeCertificationDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empCertifi in employeeCertificationDetails">
+                            <td  ng-repeat="(key, value) in empCertifi" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empCertifi,'Certificationdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empCertifi._id,'Certificationdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>&ndash;&gt;-->
+                        <!--<button type="submit" class="btn btn-primary" ng-click="saveemployeecertification(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-six" type="checkbox" name="tabs">
+            <label  class="t" for="tab-six">add Languages</label>
+            <div class="tab-content">
+                <!--<json-from json-config=Languageobject></json-from>-->
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+                            <th ng-repeat="(key,value) in employeeLanguageDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="emplanguage in employeeLanguageDetails">
+                            <td  ng-repeat="(key, value) in emplanguage" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(emplanguage,'Languagedata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(emplanguage._id,'Languagedata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>&ndash;&gt;-->
+                        <!--<button type="submit" class="btn btn-primary" ng-click="saveemployeelanguage(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-seven" type="checkbox" name="tabs">
+            <label  class="t" for="tab-seven">add dependents</label>
+            <div class="tab-content">
+                <!--<json-from json-config=DependentRelationshipobject></json-from>-->
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+
+                            <th ng-repeat="(key,value) in employeeDependentDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empDependent in employeeDependentDetails">
+                            <td  ng-repeat="(key, value) in empDependent" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empDependent,'Dependentdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empDependent._id,'Dependentdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true" ></i>close</button>&ndash;&gt;-->
+                        <!--<button type="submit" class="btn btn-primary" ng-click="saveemployeedependentdetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-eight" type="checkbox" name="tabs">
+            <label  class="t" for="tab-eight">add Emergency</label>
+            <div class="tab-content">
+                <!--<json-from json-config=Emergencyobject></json-from>-->
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+                            <th ng-repeat="(key,value) in employeeEmergencycontactDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empEmergency in employeeEmergencycontactDetails">
+                            <td  ng-repeat="(key, value) in empEmergency" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empEmergency,'Emergencycontactdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empEmergency._id,'Emergencycontactdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>&ndash;&gt;-->
+                        <!--<button type="submit" class="btn btn-primary" ng-click="saveemployeeemergencydetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+        <br/>
+
+        <div class="tab">
+            <input id="tab-nine" type="checkbox" name="tabs">
+            <label  class="t" for="tab-nine">add Documents</label>
+            <div class="tab-content">
+                <!--<json-from json-config=Documentobject></json-from>-->
+                <div class="text-center">
+
+                    <table class="table table-striped table-bordered" export-table>
+
+                        <thead>
+                        <tr>
+                            <th ng-repeat="(key,value) in employeeDocumentdataDetails[0]" ng-if="key!=='__v'&&key!='_id'" >{{key}}</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  ng-repeat="empDocument in employeeDocumentdataDetails">
+                            <td  ng-repeat="(key, value) in empDocument" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>
+                            <!--<td  ng-repeat="(key, value) in empskill" ng-if="key!=='__v'&&key!='_id'">{{value}}</td>-->
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs'
+                                   ng-click="getEditDetailsById(empDocument,'Documentdata')" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" ng-click="deleteemployeeArrayDetails(empDocument._id,'Documentdata')"  data-target="#deleteModal">
+                        <span class="glyphicon glyphicon-remove">
+                        </span> Del</a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-6 col-sm-4">-->
+                        <!--&lt;!&ndash;<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>&ndash;&gt;-->
+                        <!--<button type="submit" class="btn btn-primary" ng-click="saveemployeedocumentdetails(employeeJsonConfig)"><i class="fa fa-floppy-o" aria-hidden="true">save</i></button>-->
+                        <!--&lt;!&ndash;<button class="btn" data-ng-click="showhide()">back to main</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+        <br/>
+        <div class="tab">
+            <input id="tab-ten" type="checkbox" name="tabs">
+            <label  class="t" for="tab-ten">add Account Details</label>
+            <div class="tab-content">
+                <form class="form-horizontal form-label-left">
+                    <div class="row">
+                        <!--{{jsonConfig}}-->
+
+                        <div>
+                            <!--<p>{{formEle.name}}</p>-->
+                            <div class="form-group" ng-repeat="(key,value) in bankobj">
+                                <label class="control-label col-sm-2" ng-if="key!='_id'">{{key}}</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control col-md-7 col-xs-12"  placeholder="enter details" ng-model="value" ng-if="key!='_id'" ng-mouseleave="updateEditData(key,value)">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-4">
+                        <!--<button type="close" class="btn"><i class="fa fa-times" aria-hidden="true"></i>close</button>-->
+                        <button type="submit" class="btn btn-primary" ng-click="editEmployeeBankDetails(bankobj._id,formsdatas)"><i class="fa fa-floppy-o" aria-hidden="true">Edit</i></button>
+                        <button class="btn" data-ng-click="showhide()">back to main</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+
+    </div>
+
+    <button ng-click="">registration conform</button>
+
+</div>
+<br/><br/><br/>
+
+
+<div style="margin-left:500px;">
+    <button ng-click="myfun()" >update details</button>
+    <toaster-dir options="dirOptions"></toaster-dir>
+</div>
+
+
+
+<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+
+            <form class="form-horizontal" role="form" name="forms.form1">
+                <div class="row">
+                    <!--{{jsonConfig}}-->
+
+                        <!--<p>{{formEle.name}}</p>-->
+
+                    <!--{{editdetails}}-->
+                        <div class="form-group" ng-repeat="(key,value) in editdetails" id="formdata">
+                            <!--{{edit}}-->
+                            <label class="control-label col-sm-2">{{key}}</label>
+                            <div class="col-sm-6">
+
+                                <input type="text" class="form-control" ng-model="value"  ng-mouseleave="updateEditData(key,value)"/>
+                            </div>
+
+
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="getEditData(editdetails._id,arrayType,formsdatas)">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </form>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteModal" role="dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm Deletion</h4>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure you want to delete this item ?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"  id="btnClose">Close</button>
+            <button type="submit" class="btn btn-default" ng-click="arrayDeleteConfirm(mongoDeleteId,mongoArrayData)">
+                Delete</button>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
